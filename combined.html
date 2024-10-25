@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somali Culture Feedback & Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Somali Culture Feedback & Quiz</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Give Us Your Feedback</h2>
+        <p>Please fill out the form below to share your thoughts on Somali culture:</p>
+
+        <form action="/submit-feedback" method="post">
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="feedback">Your Feedback:</label><br>
+            <textarea id="feedback" name="feedback" rows="5" cols="30" required></textarea><br><br>
+
+            <label for="favorite">What interests you the most about Somali culture?</label><br>
+            <select id="favorite" name="favorite">
+                <option value="clothing">Traditional Clothing</option>
+                <option value="food">Cuisine</option>
+                <option value="music">Music and Poetry</option>
+                <option value="history">Geography and History</option>
+            </select><br><br>
+
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </section>
+
+    <section>
+        <h2>Test Your Knowledge of Somali Culture!</h2>
+        <p>Answer the questions below to see how much you know about Somali culture:</p>
+
+        <form action="/submit-quiz" method="post">
+            <label for="q1">1. What is the traditional clothing for Somali women?</label><br>
+            <select id="q1" name="q1">
+                <option value="dirac">Dirac</option>
+                <option value="macawiis">Macawiis</option>
+                <option value="guntiino">Guntiino</option>
+            </select><br><br>
+
+            <label for="q2">2. What is a common dish eaten in Somalia?</label><br>
+            <input type="radio" id="suqaar" name="q2" value="suqaar">
+            <label for="suqaar">Suqaar</label><br>
+            <input type="radio" id="biryani" name="q2" value="biryani">
+            <label for="biryani">Biryani</label><br>
+            <input type="radio" id="injera" name="q2" value="injera">
+            <label for="injera">Injera</label><br><br>
+
+            <label for="q3">3. What form of art is Somali culture famous for?</label><br>
+            <input type="checkbox" id="poetry" name="q3" value="poetry">
+            <label for="poetry">Poetry</label><br>
+            <input type="checkbox" id="painting" name="q3" value="painting">
+            <label for="painting">Painting</label><br>
+            <input type="checkbox" id="sculpture" name="q3" value="sculpture">
+            <label for="sculpture">Sculpture</label><br><br>
+
+            <label for="rating">4. Rate your interest in learning more about Somali culture:</label><br>
+            <input type="range" id="rating" name="rating" min="1" max="10"><br><br>
+
+            <input type="submit" value="Submit Quiz">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Somali Culture Webpage. All rights reserved.</p>
+    </footer>
+</body>
+</html>
