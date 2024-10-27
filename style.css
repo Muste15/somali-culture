@@ -88,3 +88,13 @@ footer {
     padding: 10px;
     margin-top: 20px;
 }
+
+.clothing-item {
+    margin: 20px 0;
+    text-align: center; /* Centers the content within the div */
+}
+
+.clothing-item img {
+    border: 2px solid #000; /* Adds a border to the images */
+    border-radius: 5px; /* Rounds the corners of the images */
+}
