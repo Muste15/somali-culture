@@ -71,20 +71,16 @@ header {
 ul {
     list-style-type: none; /* Remove bullet points */
     padding: 0;
-    display: flex; /* Use flexbox for vertical layout */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: row; /* Stack items horizontally */
+    justify-content: center; /* Center items horizontally */
 }
 
 ul li {
-    margin: 10px 0; /* Space between list items */
+    margin: 0 15px; /* Space between list items */
     padding: 10px 20px; /* Padding around each list item */
     border-radius: 5px; /* Rounded corners for list items */
-    transition: background-color 0.3s; /* Smooth transition for background color */
-}
-
-ul li:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Light hover effect */
+    color: black; /* Set text color to black */
 }
 
 footer {
