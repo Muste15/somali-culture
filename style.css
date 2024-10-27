@@ -44,3 +44,51 @@ footer {
 h2 {
     color: #006699;
 }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('IMG_2668.JPG'); /* Replace with your background image */
+    background-size: cover; /* Cover the whole background */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Full height of the viewport */
+    color: black; /* Change text color to black */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px; /* Space from the top to center the content */
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for readability */
+    display: inline-block; /* Ensure it only takes up space around the text */
+    border-radius: 10px; /* Optional: round the corners of the block */
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    display: flex; /* Use flexbox for vertical layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+ul li {
+    margin: 10px 0; /* Space between list items */
+    padding: 10px 20px; /* Padding around each list item */
+    border-radius: 5px; /* Rounded corners for list items */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light hover effect */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
