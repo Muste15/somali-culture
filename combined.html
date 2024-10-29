@@ -8,37 +8,41 @@
     <script>
         async function submitFeedback(event) {
             event.preventDefault(); // Prevent the default form submission
-
+    
+            // Get the form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const feedback = document.getElementById('feedback').value;
             const favorite = document.getElementById('favorite').value;
-
-            const feedbackData = {
+    
+            // Create the payload
+            const payload = {
                 name: name,
                 email: email,
                 feedback: feedback,
                 favorite: favorite
             };
-
+    
             try {
-                const response = await fetch("https://d2s1cz8ze1.execute-api.eu-west-1.amazonaws.com", { 
-                    method: "POST",
+                // Send POST request to the API endpoint
+                const response = await fetch('https://d2s1cz8ze1.execute-api.eu-west-1.amazonaws.com/dev/feedback', {
+                    method: 'POST',
                     headers: {
-                        "Content-Type": "application/json"
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(feedbackData)
+                    body: JSON.stringify(payload)
                 });
-
+    
                 if (response.ok) {
+                    // Display the success message
                     alert(`Thank you, ${name}! Your feedback has been recorded successfully.`);
-                    document.getElementById('feedback-form').reset();
+                    document.getElementById('feedback-form').reset(); // Reset the form
                 } else {
-                    alert("There was an issue saving your feedback. Please try again.");
+                    alert('There was an error submitting your feedback. Please try again later.');
                 }
             } catch (error) {
-                console.error("Error:", error);
-                alert("Error saving feedback.");
+                console.error('Error:', error);
+                alert('There was a network error. Please try again later.');
             }
         }
     </script>
