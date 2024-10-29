@@ -3,12 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somali Culture Feedback & Quiz</title>
+    <title>Somali Culture Feedback</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        async function submitFeedback(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const feedback = document.getElementById('feedback').value;
+            const favorite = document.getElementById('favorite').value;
+
+            const feedbackData = {
+                name: name,
+                email: email,
+                feedback: feedback,
+                favorite: favorite
+            };
+
+            try {
+                const response = await fetch("YOUR_LAMBDA_API_ENDPOINT", { // Replace with your API Gateway endpoint
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(feedbackData)
+                });
+
+                if (response.ok) {
+                    alert(`Thank you, ${name}! Your feedback has been recorded successfully.`);
+                    document.getElementById('feedback-form').reset();
+                } else {
+                    alert("There was an issue saving your feedback. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error saving feedback.");
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
-        <h1>Somali Culture Feedback & Quiz</h1>
+        <h1>Somali Culture Feedback</h1>
         <nav>
             <a href="index.html">Home</a>
         </nav>
@@ -18,7 +55,7 @@
         <h2>Give Us Your Feedback</h2>
         <p>Please fill out the form below to share your thoughts on Somali culture:</p>
 
-        <form action="/submit-feedback" method="post">
+        <form id="feedback-form" onsubmit="submitFeedback(event)">
             <label for="name">Your Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
 
@@ -37,41 +74,6 @@
             </select><br><br>
 
             <input type="submit" value="Submit Feedback">
-        </form>
-    </section>
-
-    <section>
-        <h2>Test Your Knowledge of Somali Culture!</h2>
-        <p>Answer the questions below to see how much you know about Somali culture:</p>
-
-        <form action="/submit-quiz" method="post">
-            <label for="q1">1. What is the traditional clothing for Somali women?</label><br>
-            <select id="q1" name="q1">
-                <option value="dirac">Dirac</option>
-                <option value="macawiis">Macawiis</option>
-                <option value="guntiino">Guntiino</option>
-            </select><br><br>
-
-            <label for="q2">2. What is a common dish eaten in Somalia?</label><br>
-            <input type="radio" id="suqaar" name="q2" value="suqaar">
-            <label for="suqaar">Suqaar</label><br>
-            <input type="radio" id="biryani" name="q2" value="biryani">
-            <label for="biryani">Biryani</label><br>
-            <input type="radio" id="injera" name="q2" value="injera">
-            <label for="injera">Injera</label><br><br>
-
-            <label for="q3">3. What form of art is Somali culture famous for?</label><br>
-            <input type="checkbox" id="poetry" name="q3" value="poetry">
-            <label for="poetry">Poetry</label><br>
-            <input type="checkbox" id="painting" name="q3" value="painting">
-            <label for="painting">Painting</label><br>
-            <input type="checkbox" id="sculpture" name="q3" value="sculpture">
-            <label for="sculpture">Sculpture</label><br><br>
-
-            <label for="rating">4. Rate your interest in learning more about Somali culture:</label><br>
-            <input type="range" id="rating" name="rating" min="1" max="10"><br><br>
-
-            <input type="submit" value="Submit Quiz">
         </form>
     </section>
 
